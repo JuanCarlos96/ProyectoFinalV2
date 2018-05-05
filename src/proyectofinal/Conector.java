@@ -8,6 +8,7 @@ package proyectofinal;
 import com.mysql.jdbc.Connection;
 import java.awt.HeadlessException;
 import java.io.*;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,18 +33,19 @@ public class Conector {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             this.conexion = (Connection) DriverManager.getConnection("jdbc:mysql://"+ip+"/noticias", USER, PASSWORD);
-            sql = "SELECT * FROM sqlite_master WHERE name='Departamento'";// Comprueba si existe la tabla
-            stmnt = conexion.createStatement();
-            ResultSet rs = stmnt.executeQuery(sql);
-            if (rs.next()==false) {// Si no existe crea la base de datos
+            DatabaseMetaData dmd = this.conexion.getMetaData();
+            ResultSet rs = dmd.getTables(null, null, "Departamento", null);
+            if (rs.next()==false) {// Si no existe crea las tablas
+                System.out.println("Base de datos vacía, creando tablas...");
                 this.crearTablas();
             }
-            JOptionPane.showMessageDialog(null, "Base de datos conectada");
+            rs.close();
+            //JOptionPane.showMessageDialog(null, "Base de datos conectada");
             System.out.println("Base de datos conectada.");
         } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error conectando con la base de datos");
             System.out.println("Error cargando el driver");
-            //ex.printStackTrace();
         }
     }
     
@@ -68,9 +70,6 @@ public class Conector {
                     + "Vigente  BOOLEAN,"
                     + "Publica  BOOLEAN,"// Campo del visto bueno (checkbox)
                     + "PRIMARY KEY(IDNot))";
-            stmnt.execute(sql);
-            
-            sql = "INSERT INTO Departamento (Departamento, Clave) VALUES ('admin', 'admin')";// Creación del usuario Administrador
             stmnt.execute(sql);
             
             System.out.println("Tablas creadas");
@@ -134,6 +133,29 @@ public class Conector {
             ex.printStackTrace();
         }
         return usuarios;
+    }
+    
+    public boolean userExists(String departamento, String clave) {
+        ResultSet rs = null;
+        try {
+            sql = "SELECT * FROM Departamento WHERE Departamento='"+departamento+"' AND Clave='"+clave+"'";
+            stmnt = conexion.createStatement();
+            rs = stmnt.executeQuery(sql);
+            if (rs.next())
+                return true;
+            else
+                return false;
+        } catch (SQLException ex) {
+            System.out.println("El usuario no existe");
+            ex.printStackTrace();
+            return false;
+        }finally {
+            try {
+                rs.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
     
     public int maxIdNot() {
@@ -265,15 +287,6 @@ public class Conector {
             sql = "DROP TABLE Departamento";
             stmnt.execute(sql);
             
-            File admin = new File("administrador.dat");
-            File usuarios = new File("usuarios.dat");
-            
-            if (admin.exists())
-                admin.delete();
-            
-            if (usuarios.exists())
-                usuarios.delete();
-            
             System.out.println("Tablas borradas");
             crearTablas();
         } catch (SQLException e) {
@@ -285,45 +298,11 @@ public class Conector {
     public void cerrar() {
         if (conexion!=null) {
             try {
-                // Creación del fichero con el usuario administrador
-                DataOutputStream dos = new DataOutputStream(new FileOutputStream(new File("administrador.dat")));
-                stmnt = conexion.createStatement();
-                sql = "SELECT * FROM Departamento WHERE Departamento='admin'";
-                ResultSet rs = stmnt.executeQuery(sql);
-                while(rs.next()) {
-                    dos.writeUTF(rs.getString("Departamento")+" "+rs.getString("Clave"));
-                }
-                rs.close();
-                dos.close();
-                
-                // Creación del fichero con los usuarios normales
-                stmnt = conexion.createStatement();
-                sql = "SELECT * FROM Departamento WHERE Departamento!='admin'";
-                ResultSet rs2 = stmnt.executeQuery(sql);
-                if (rs2.next()==true) {
-                    rs2.beforeFirst();
-                    DataOutputStream dos2 = new DataOutputStream(new FileOutputStream(new File("usuarios.dat")));
-                    while(rs2.next()) {
-                        dos2.writeUTF(rs2.getString("Departamento")+" "+rs2.getString("Clave"));
-                    }
-                    rs2.close();
-                    dos2.close();
-                }else {
-                    File usuarios = new File("usuarios.dat");
-                    if (usuarios.exists()) {
-                        usuarios.delete();
-                    }
-                    System.out.println("No hay usuarios en la BD");
-                }
-                
                 conexion.close();
                 System.out.println("Conexión cerrada.");
             } catch (SQLException e) {
                 System.out.println("No se pudo cerrar la conexión.");
                 e.printStackTrace();
-            } catch (IOException ex) {
-                System.out.println("Error creando el archivo administrador.dat");
-                ex.printStackTrace();
             }
         }
     }

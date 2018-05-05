@@ -14,9 +14,9 @@ import com.jcraft.jsch.SftpException;
 import com.jcraft.jsch.UserInfo;
 import com.mysql.jdbc.Connection;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -27,7 +27,6 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -47,58 +46,14 @@ public class Aplicacion extends javax.swing.JFrame {
     private BufferedImage image = null;
     private byte[] imageblob = null;
     private File imagen_seleccionada = null;
+    private int fontSize = 20;
+    private Color fontColor = Color.BLACK;
 
     /**
      * Creates new form Aplicacion
      */
     public Aplicacion() {
         initComponents();
-    }
-    
-    private boolean admin() {
-        boolean esAdmin = false;
-        try {
-            DataInputStream dis = new DataInputStream(new FileInputStream("administrador.dat"));
-            String linea;
-            try{
-                while (true) {
-                    linea=dis.readUTF();
-                    //System.out.println(linea);
-                    if (txtUser.getText().trim().equals(linea.split(" ")[0]) && String.valueOf(txtPassword.getPassword()).equals(linea.split(" ")[1])) {
-                        esAdmin = true;
-                    }
-                }
-            } catch (EOFException eofe) {
-            }
-            dis.close();
-        } catch (IOException e) {
-            System.out.println("Error leyendo el archivo administrador.dat");
-            e.printStackTrace();
-        }
-        return esAdmin;
-    }
-    
-    private boolean usuario() {
-        boolean esUsuario = false;
-        try {
-            DataInputStream dis = new DataInputStream(new FileInputStream("usuarios.dat"));
-            String linea;
-            try{
-                while (true) {
-                    linea=dis.readUTF();
-                    //System.out.println(linea);
-                    if (txtUser.getText().trim().equals(linea.split(" ")[0]) && String.valueOf(txtPassword.getPassword()).equals(linea.split(" ")[1])) {
-                        esUsuario = true;
-                    }
-                }
-            } catch (EOFException eofe) {
-            }
-            dis.close();
-        } catch (IOException e) {
-            System.out.println("Error leyendo el archivo usuarios.dat");
-            e.printStackTrace();
-        }
-        return esUsuario;
     }
     
     private int calculatePasswordStrength(String password){
@@ -191,9 +146,11 @@ public class Aplicacion extends javax.swing.JFrame {
         return dimg;
     }
     
-    private BufferedImage writeImage(BufferedImage image, String texto, int x, int y) {
+    private BufferedImage writeImage(BufferedImage image, String texto, int x, int y, int size, Color fontColor) {
         Graphics g = image.getGraphics();
-        g.setFont(g.getFont().deriveFont(30f));
+        Font font = new Font(Font.SANS_SERIF, Font.BOLD, size);
+        g.setFont(font);
+        g.setColor(fontColor);
         g.drawString(texto, x, y);
         g.dispose();
         return resize(image, 600, 400);// Se reescala para la vista previa
@@ -273,7 +230,6 @@ public class Aplicacion extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
-        txtVigencia = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         topLeft = new javax.swing.JRadioButton();
@@ -289,6 +245,10 @@ public class Aplicacion extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         btnCancelarNuevaNoticia = new javax.swing.JButton();
         btnAceptarNuevaNoticia = new javax.swing.JButton();
+        comboDiasVigencia = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        btnFontColor = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         vistaPrevia = new javax.swing.JDialog();
         panelVistaPrevia = new javax.swing.JPanel();
@@ -309,6 +269,7 @@ public class Aplicacion extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jColorChooser1 = new javax.swing.JColorChooser();
         txtUser = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -921,6 +882,11 @@ public class Aplicacion extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyTyped(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTextArea1);
 
         jLabel15.setText("Vigencia: ");
@@ -931,75 +897,30 @@ public class Aplicacion extends javax.swing.JFrame {
 
         buttonGroup1.add(topLeft);
         topLeft.setActionCommand("topLeft");
-        topLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                topLeftActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(topRight);
         topRight.setActionCommand("topRight");
-        topRight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                topRightActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(bottomLeft);
         bottomLeft.setActionCommand("bottomLeft");
-        bottomLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottomLeftActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(bottomRight);
         bottomRight.setActionCommand("bottomRight");
-        bottomRight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottomRightActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(middleLeft);
         middleLeft.setActionCommand("middleLeft");
-        middleLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                middleLeftActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(middleRight);
         middleRight.setActionCommand("middleRight");
-        middleRight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                middleRightActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(bottomCenter);
         bottomCenter.setActionCommand("bottomCenter");
-        bottomCenter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottomCenterActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(topCenter);
         topCenter.setActionCommand("topCenter");
-        topCenter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                topCenterActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(middleCenter);
         middleCenter.setActionCommand("middleCenter");
-        middleCenter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                middleCenterActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1058,11 +979,34 @@ public class Aplicacion extends javax.swing.JFrame {
         jLabel17.setText("días");
 
         btnCancelarNuevaNoticia.setText("Cancelar");
+        btnCancelarNuevaNoticia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarNuevaNoticiaActionPerformed(evt);
+            }
+        });
 
         btnAceptarNuevaNoticia.setText("Aceptar");
         btnAceptarNuevaNoticia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarNuevaNoticiaActionPerformed(evt);
+            }
+        });
+
+        comboDiasVigencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 7", "14", "21", "30", "60", "90", "180" }));
+
+        jLabel22.setText("Tamaño de letra");
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(20, 1, 100, 1));
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinner1StateChanged(evt);
+            }
+        });
+
+        btnFontColor.setText("Color de letra");
+        btnFontColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFontColorActionPerformed(evt);
             }
         });
 
@@ -1081,11 +1025,10 @@ public class Aplicacion extends javax.swing.JFrame {
                     .addComponent(btnImagen)
                     .addComponent(jLabel14)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
+                        .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel17)))
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnFontColor))
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
@@ -1101,24 +1044,27 @@ public class Aplicacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(nuevaNoticiaLayout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 33, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnAceptarNuevaNoticia)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCancelarNuevaNoticia))
                             .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVistaPrevia)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
-                                        .addComponent(btnVistaPrevia)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevaNoticiaLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnAceptarNuevaNoticia)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCancelarNuevaNoticia)))))
+                                        .addComponent(jLabel15)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(comboDiasVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jLabel17)))
+                                .addGap(0, 33, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         nuevaNoticiaLayout.setVerticalGroup(
             nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nuevaNoticiaLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
@@ -1138,21 +1084,22 @@ public class Aplicacion extends javax.swing.JFrame {
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(nuevaNoticiaLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(txtVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnVistaPrevia)
-                            .addComponent(jLabel17))
-                        .addContainerGap(52, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevaNoticiaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCancelarNuevaNoticia)
-                            .addComponent(btnAceptarNuevaNoticia))
-                        .addContainerGap())))
+                .addGap(18, 18, 18)
+                .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel17)
+                    .addComponent(comboDiasVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVistaPrevia)
+                    .addComponent(btnFontColor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelarNuevaNoticia)
+                    .addComponent(btnAceptarNuevaNoticia))
+                .addContainerGap())
         );
 
         vistaPrevia.setTitle("Vista previa");
@@ -1367,25 +1314,21 @@ public class Aplicacion extends javax.swing.JFrame {
         //System.out.println("Clave: "+String.valueOf(txtPassword.getPassword()));
         if (txtUser.getText().trim().equals("") || String.valueOf(txtPassword.getPassword()).trim().equals("")) {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña en blanco");
+        }else if (txtUser.getText().equals("admin") && String.valueOf(txtPassword.getPassword()).equals("1234")) {
+            peticionIP.setLocationRelativeTo(null);
+            peticionIP.setVisible(true);
         }else {
-            if (!new File("administrador.dat").exists()) {
-                if (txtUser.getText().equals("admin") && String.valueOf(txtPassword.getPassword()).equals("admin")) {
-                    peticionIP.setLocationRelativeTo(null);
-                    peticionIP.setVisible(true);
+            try {
+                // Conexión con la base de datos
+                BufferedReader br = new BufferedReader(new FileReader("ipservidor.txt"));
+                String linea;
+
+                while ((linea=br.readLine())!=null) {
+                    con = new Conector(linea);
                 }
-            }else if (new File("administrador.dat").exists() && admin()) {
-                peticionIP.setLocationRelativeTo(null);
-                peticionIP.setVisible(true);
-            }else if (new File("usuarios.dat").exists() && usuario()){
-                try {
-                    BufferedReader br = new BufferedReader(new FileReader("ipservidor.txt"));
-                    String linea;
-                    
-                    while ((linea=br.readLine())!=null) {
-                        con = new Conector(linea);
-                    }
-                    br.close();
-                    
+                br.close();
+                //##############################
+                if (con.userExists(txtUser.getText(), String.valueOf(txtPassword.getPassword()))) {// Comprueba que el usuario exista a través de una consulta
                     listarNoticiasUser();
                     panelAdmin.setVisible(false);
                     panelUsuario.setVisible(true);
@@ -1394,12 +1337,16 @@ public class Aplicacion extends javax.swing.JFrame {
                     mainAplicacion.setTitle(txtUser.getText());
                     mainAplicacion.setVisible(true);
                     this.setVisible(false);
-                } catch (IOException e) {
-                    System.out.println("Error accediendo al fichero ipservidor.txt");
-                    e.printStackTrace();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El usuario no existe");
+                    con.cerrar();
+                    txtUser.setText("");
+                    txtPassword.setText("");
+                    txtUser.requestFocus();
                 }
-            }else {
-                JOptionPane.showMessageDialog(null, "El usuario no existe");
+            } catch (IOException e) {
+                System.out.println("Error conectando con la base de datos (ipservidor.txt)");
+                e.printStackTrace();
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -1577,8 +1524,13 @@ public class Aplicacion extends javax.swing.JFrame {
         lblFecha.setText(df.format(date));
         lblDepartamento.setText(mainAplicacion.getTitle());
         jTextArea1.setText("");
-        txtVigencia.setText("");
+        comboDiasVigencia.setSelectedIndex(0);
         buttonGroup1.clearSelection();
+        jSpinner1.getModel().setValue(20);
+        fontSize = 20;
+        jColorChooser1.setColor(Color.BLACK);
+        fontColor = Color.BLACK;
+        image = null;
         nuevaNoticia.setLocationRelativeTo(null);
         nuevaNoticia.pack();
         nuevaNoticia.setVisible(true);
@@ -1595,6 +1547,7 @@ public class Aplicacion extends javax.swing.JFrame {
             //El path absoluto del archivo elegido
             imagen_seleccionada = this.jFileChooser1.getSelectedFile();
             System.out.println(imagen_seleccionada);
+            buttonGroup1.clearSelection();
         }
     }//GEN-LAST:event_btnImagenActionPerformed
 
@@ -1607,6 +1560,253 @@ public class Aplicacion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una posición");
         }else {
             try {
+                String positionSelected = buttonGroup1.getSelection().getActionCommand();
+                Thread t;
+                switch (positionSelected) {
+                    case "topLeft":
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/1))+50, (height-(height/1))+50, fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    case "topCenter":
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/2))-(width/6), (height-(height/1))+50, fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    case "topRight":
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, width-(width/3), (height-(height/1))+50, fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    case "middleLeft":
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/1))+50, (height-(height/2))-(height/6), fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    case "middleCenter":
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/2))-(width/6), (height-(height/2))-(height/6), fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    case "middleRight":
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, width-width/3, (height-(height/2))-(height/6), fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    case "bottomLeft":
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/1))+50, height-height/3, fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    case "bottomCenter":
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/2))-(width/6), height-height/3, fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                    default:// bottomRight
+                        t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    System.out.println("Posición: "+evt.getActionCommand());
+                                    String texto = jTextArea1.getText();
+                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                                    System.out.println("Imagen cargada");
+                                    BufferedImage imagenVistaPrevia = null;
+                                    int width = image.getWidth();
+                                    int height = image.getHeight();
+                                    imagenVistaPrevia = writeImage(image, texto, width-width/3, height-height/3, fontSize, fontColor);
+                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+                                    System.out.println("Vista previa creada");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            }
+                        };
+                        t.start();
+                        try {
+                            t.join();
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
+                        }
+                        break;
+                }
                 panelVistaPrevia.removeAll();
                 BufferedImage brVistaPrevia = ImageIO.read(new File("vistaprevia"));
                 JLabel labelImg = new JLabel(new ImageIcon(brVistaPrevia));
@@ -1629,8 +1829,6 @@ public class Aplicacion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
         } if (jTextArea1.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Debe escribir algo");
-        } if (txtVigencia.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe especificar los días de vigencia");
         } else {
             try {
                 boolean insertar = false;
@@ -1656,7 +1854,7 @@ public class Aplicacion extends javax.swing.JFrame {
                 int diasVigencia = 0;// Días de vigencia
                 
                 try {
-                    diasVigencia = Integer.parseInt(txtVigencia.getText());
+                    diasVigencia = (int) comboDiasVigencia.getSelectedItem();
                     insertar = true;
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Días de vigencia incorrectos");
@@ -1678,7 +1876,7 @@ public class Aplicacion extends javax.swing.JFrame {
                 
                 //ENVÍA IMAGEN
                 try {
-                  this.envia_imagen_sftp_y_reinicio(ruta);
+                    this.envia_imagen_sftp_y_reinicio(ruta);
                 } catch (JSchException ex) {
                     Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SftpException ex) {
@@ -1763,213 +1961,6 @@ public class Aplicacion extends javax.swing.JFrame {
             btnVerNoticia.setEnabled(true);
         }
     }//GEN-LAST:event_jTable1MouseReleased
-
-    private void topLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topLeftActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 100, 100);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_topLeftActionPerformed
-
-    private void topCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topCenterActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 600, 100);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_topCenterActionPerformed
-
-    private void topRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topRightActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 900, 100);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_topRightActionPerformed
-
-    private void middleLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_middleLeftActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 100, 500);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_middleLeftActionPerformed
-
-    private void middleCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_middleCenterActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 600, 500);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_middleCenterActionPerformed
-
-    private void middleRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_middleRightActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 900, 500);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_middleRightActionPerformed
-
-    private void bottomLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottomLeftActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 100, 800);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_bottomLeftActionPerformed
-
-    private void bottomCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottomCenterActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 600, 800);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_bottomCenterActionPerformed
-
-    private void bottomRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottomRightActionPerformed
-        if (jTextArea1.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe escribir algo");
-            buttonGroup1.clearSelection();
-        } else if (imagen_seleccionada==null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
-            buttonGroup1.clearSelection();
-        } else {
-            try {
-                System.out.println("Posición: "+evt.getActionCommand());
-                String texto = jTextArea1.getText();
-                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                System.out.println("Imagen cargada");
-                BufferedImage imagenVistaPrevia = null;
-                imagenVistaPrevia = writeImage(image, texto, 900, 800);
-                ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                System.out.println("Vista previa creada");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_bottomRightActionPerformed
 
     private void tablaTodasNoticiasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaTodasNoticiasMouseReleased
         if (tablaTodasNoticias.getSelectedRow()>-1) {
@@ -2107,6 +2098,24 @@ public class Aplicacion extends javax.swing.JFrame {
         listarNoticiasAdmin();
     }//GEN-LAST:event_btnEliminarNoticiaActionPerformed
 
+    private void btnCancelarNuevaNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarNuevaNoticiaActionPerformed
+        nuevaNoticia.setVisible(false);
+    }//GEN-LAST:event_btnCancelarNuevaNoticiaActionPerformed
+
+    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
+        if (positionSelected())
+            buttonGroup1.clearSelection();
+    }//GEN-LAST:event_jTextArea1KeyTyped
+
+    private void btnFontColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFontColorActionPerformed
+        this.fontColor = this.jColorChooser1.showDialog(null, "Selecciona un color", Color.BLACK);
+    }//GEN-LAST:event_btnFontColorActionPerformed
+
+    private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
+        this.fontSize = (int) jSpinner1.getModel().getValue();
+        System.out.println(fontSize);
+    }//GEN-LAST:event_jSpinner1StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -2160,6 +2169,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JButton btnEditarNoticia;
     private javax.swing.JButton btnEliminarNoticia;
     private javax.swing.JButton btnEliminarUsuario;
+    private javax.swing.JButton btnFontColor;
     private javax.swing.JButton btnImagen;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnModUsuario;
@@ -2172,11 +2182,13 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chkPublica;
     private javax.swing.JCheckBox chkVigente;
+    private javax.swing.JComboBox<String> comboDiasVigencia;
     private javax.swing.JDialog editarNoticia;
     private javax.swing.JDialog editarUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2192,6 +2204,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2206,6 +2219,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
@@ -2245,7 +2259,6 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JLabel txtRutaImagen;
     private javax.swing.JTextField txtUser;
-    private javax.swing.JTextField txtVigencia;
     private javax.swing.JDialog vistaPrevia;
     // End of variables declaration//GEN-END:variables
 }

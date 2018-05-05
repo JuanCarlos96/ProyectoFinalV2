@@ -821,12 +821,11 @@
                       <Component id="btnImagen" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtVigencia" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner1" min="-2" pref="65" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="btnFontColor" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -847,22 +846,24 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btnAceptarNuevaNoticia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnCancelarNuevaNoticia" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="btnVistaPrevia" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="btnAceptarNuevaNoticia" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnVistaPrevia" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                          <Component id="comboDiasVigencia" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnCancelarNuevaNoticia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -874,7 +875,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -900,26 +901,25 @@
                           <Component id="jPanel1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtVigencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnVistaPrevia" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnCancelarNuevaNoticia" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnAceptarNuevaNoticia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboDiasVigencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnVistaPrevia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnFontColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="8" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnCancelarNuevaNoticia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAceptarNuevaNoticia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -964,6 +964,9 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextArea1KeyTyped"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -971,8 +974,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Vigencia: "/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtVigencia">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
@@ -1054,9 +1055,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="topLeft"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="topLeftActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="topRight">
               <Properties>
@@ -1065,9 +1063,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="topRight"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="topRightActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="bottomLeft">
               <Properties>
@@ -1076,9 +1071,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="bottomLeft"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bottomLeftActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="bottomRight">
               <Properties>
@@ -1087,9 +1079,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="bottomRight"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bottomRightActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="middleLeft">
               <Properties>
@@ -1098,9 +1087,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="middleLeft"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="middleLeftActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="middleRight">
               <Properties>
@@ -1109,9 +1095,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="middleRight"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="middleRightActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="bottomCenter">
               <Properties>
@@ -1120,9 +1103,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="bottomCenter"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bottomCenterActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="topCenter">
               <Properties>
@@ -1131,9 +1111,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="topCenter"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="topCenterActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="middleCenter">
               <Properties>
@@ -1142,9 +1119,6 @@
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="middleCenter"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="middleCenterActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1165,6 +1139,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarNuevaNoticiaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAceptarNuevaNoticia">
           <Properties>
@@ -1172,6 +1149,47 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptarNuevaNoticiaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboDiasVigencia">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="7">
+                <StringItem index="0" value=" 7"/>
+                <StringItem index="1" value="14"/>
+                <StringItem index="2" value="21"/>
+                <StringItem index="3" value="30"/>
+                <StringItem index="4" value="60"/>
+                <StringItem index="5" value="90"/>
+                <StringItem index="6" value="180"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel22">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tama&#xf1;o de letra"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="jSpinner1">
+          <Properties>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="20" maximum="100" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinner1StateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnFontColor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Color de letra"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFontColorActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -1407,6 +1425,8 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JColorChooser" name="jColorChooser1">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
