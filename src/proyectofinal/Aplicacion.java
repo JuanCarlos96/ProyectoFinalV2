@@ -1304,7 +1304,7 @@ public class Aplicacion extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("INICIAR SESIÓN");
+        setTitle("Proyecto RASPanel");
         setResizable(false);
         setSize(new java.awt.Dimension(401, 262));
 

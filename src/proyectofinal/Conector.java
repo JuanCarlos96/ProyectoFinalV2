@@ -32,6 +32,12 @@ public class Conector {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             this.conexion = (Connection) DriverManager.getConnection("jdbc:mysql://"+ip+"/noticias", USER, PASSWORD);
+            sql = "SELECT * FROM sqlite_master WHERE name='Departamento'";// Comprueba si existe la tabla
+            stmnt = conexion.createStatement();
+            ResultSet rs = stmnt.executeQuery(sql);
+            if (rs.next()==false) {// Si no existe crea la base de datos
+                this.crearTablas();
+            }
             JOptionPane.showMessageDialog(null, "Base de datos conectada");
             System.out.println("Base de datos conectada.");
         } catch (ClassNotFoundException | SQLException ex) {
