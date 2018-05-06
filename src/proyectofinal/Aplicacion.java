@@ -249,6 +249,7 @@ public class Aplicacion extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         btnFontColor = new javax.swing.JButton();
+        lblColorSample = new javax.swing.JLabel();
         buttonGroup1 = new javax.swing.ButtonGroup();
         vistaPrevia = new javax.swing.JDialog();
         panelVistaPrevia = new javax.swing.JPanel();
@@ -270,6 +271,16 @@ public class Aplicacion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jColorChooser1 = new javax.swing.JColorChooser();
+        popupNoticiasUser = new javax.swing.JPopupMenu();
+        menuNuevaNoticiaUser = new javax.swing.JMenuItem();
+        menuVerNoticiaUser = new javax.swing.JMenuItem();
+        popupUsuarios = new javax.swing.JPopupMenu();
+        menuNuevoUser = new javax.swing.JMenuItem();
+        menuModUser = new javax.swing.JMenuItem();
+        menuBorrarUser = new javax.swing.JMenuItem();
+        popupNoticiasAdmin = new javax.swing.JPopupMenu();
+        menuEditarNoticia = new javax.swing.JMenuItem();
+        menuEliminarNoticia = new javax.swing.JMenuItem();
         txtUser = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -338,6 +349,9 @@ public class Aplicacion extends javax.swing.JFrame {
         tablaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tablaUsuariosMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaUsuariosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tablaUsuarios);
@@ -420,6 +434,9 @@ public class Aplicacion extends javax.swing.JFrame {
         tablaTodasNoticias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tablaTodasNoticiasMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaTodasNoticiasMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(tablaTodasNoticias);
@@ -544,6 +561,9 @@ public class Aplicacion extends javax.swing.JFrame {
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jTable1MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(jTable1);
@@ -882,11 +902,6 @@ public class Aplicacion extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextArea1KeyTyped(evt);
-            }
-        });
         jScrollPane4.setViewportView(jTextArea1);
 
         jLabel15.setText("Vigencia: ");
@@ -1010,6 +1025,9 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        lblColorSample.setBackground(new java.awt.Color(1, 1, 1));
+        lblColorSample.setOpaque(true);
+
         javax.swing.GroupLayout nuevaNoticiaLayout = new javax.swing.GroupLayout(nuevaNoticia.getContentPane());
         nuevaNoticia.getContentPane().setLayout(nuevaNoticiaLayout);
         nuevaNoticiaLayout.setHorizontalGroup(
@@ -1028,7 +1046,10 @@ public class Aplicacion extends javax.swing.JFrame {
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnFontColor))
+                    .addGroup(nuevaNoticiaLayout.createSequentialGroup()
+                        .addComponent(btnFontColor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblColorSample, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
@@ -1094,7 +1115,8 @@ public class Aplicacion extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVistaPrevia)
-                    .addComponent(btnFontColor))
+                    .addComponent(btnFontColor)
+                    .addComponent(lblColorSample, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelarNuevaNoticia)
@@ -1249,6 +1271,64 @@ public class Aplicacion extends javax.swing.JFrame {
                             .addComponent(jButton3))
                         .addContainerGap())))
         );
+
+        menuNuevaNoticiaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/New16.gif"))); // NOI18N
+        menuNuevaNoticiaUser.setText("Nueva");
+        menuNuevaNoticiaUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNuevaNoticiaUserActionPerformed(evt);
+            }
+        });
+        popupNoticiasUser.add(menuNuevaNoticiaUser);
+
+        menuVerNoticiaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Properties16.gif"))); // NOI18N
+        menuVerNoticiaUser.setText("Ver");
+        menuVerNoticiaUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuVerNoticiaUserActionPerformed(evt);
+            }
+        });
+        popupNoticiasUser.add(menuVerNoticiaUser);
+
+        menuNuevoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/New16.gif"))); // NOI18N
+        menuNuevoUser.setText("Nuevo");
+        menuNuevoUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNuevoUserActionPerformed(evt);
+            }
+        });
+        popupUsuarios.add(menuNuevoUser);
+
+        menuModUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Edit16.gif"))); // NOI18N
+        menuModUser.setText("Modificar");
+        menuModUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuModUserActionPerformed(evt);
+            }
+        });
+        popupUsuarios.add(menuModUser);
+
+        menuBorrarUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Delete16.gif"))); // NOI18N
+        menuBorrarUser.setText("Eliminar");
+        menuBorrarUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBorrarUserActionPerformed(evt);
+            }
+        });
+        popupUsuarios.add(menuBorrarUser);
+
+        menuEditarNoticia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Properties16.gif"))); // NOI18N
+        menuEditarNoticia.setText("Ver");
+        menuEditarNoticia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditarNoticiaActionPerformed(evt);
+            }
+        });
+        popupNoticiasAdmin.add(menuEditarNoticia);
+
+        menuEliminarNoticia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Delete16.gif"))); // NOI18N
+        menuEliminarNoticia.setText("Eliminar");
+        popupNoticiasAdmin.add(menuEliminarNoticia);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Proyecto RASPanel");
@@ -1431,13 +1511,17 @@ public class Aplicacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNuevaClaveKeyTyped
 
-    private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
+    private void nuevoUsuario() {
         txtNuevoUsuario.setText("");
         txtNuevaClave.setText("");
         lblFortaleza.setText("");
         txtNuevoUsuario.requestFocus();
         nuevoUsuario.setLocationRelativeTo(null);
         nuevoUsuario.setVisible(true);
+    }
+    
+    private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
+        nuevoUsuario();
     }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
 
     private void btnCancelarNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarNuevoUsuarioActionPerformed
@@ -1456,7 +1540,7 @@ public class Aplicacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAceptarNuevoUsuarioActionPerformed
 
-    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
+    private void eliminarUsuario() {
         // 0-Sí 1-No
         if (JOptionPane.showConfirmDialog(null, "¿Desea eliminar el usuario?", "Eliminar usuario", JOptionPane.YES_NO_OPTION)==0) {
             String departamento = (String) tablaUsuarios.getValueAt(tablaUsuarios.getSelectedRow(), 0);
@@ -1467,16 +1551,27 @@ public class Aplicacion extends javax.swing.JFrame {
             btnModUsuario.setEnabled(false);
             btnEliminarUsuario.setEnabled(false);
         }
+    }
+    
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
+        eliminarUsuario();
     }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
     private void tablaUsuariosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaUsuariosMouseReleased
+        int r = tablaUsuarios.rowAtPoint(evt.getPoint());
+        if (r >= 0 && r < tablaUsuarios.getRowCount()) {
+            tablaUsuarios.setRowSelectionInterval(r, r);
+        } else {
+            tablaUsuarios.clearSelection();
+        }
+        
         if (tablaUsuarios.getSelectedRow()>-1) {
             btnModUsuario.setEnabled(true);
             btnEliminarUsuario.setEnabled(true);
         }
     }//GEN-LAST:event_tablaUsuariosMouseReleased
 
-    private void btnModUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModUsuarioActionPerformed
+    private void modUsuario() {
         lblUsuario.setText((String) tablaUsuarios.getValueAt(tablaUsuarios.getSelectedRow(), 0));
         lblClave.setText((String) tablaUsuarios.getValueAt(tablaUsuarios.getSelectedRow(), 1));
         txtEditarClave.setText("");
@@ -1484,6 +1579,10 @@ public class Aplicacion extends javax.swing.JFrame {
         editarUsuario.setLocationRelativeTo(null);
         editarUsuario.pack();
         editarUsuario.setVisible(true);
+    }
+    
+    private void btnModUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModUsuarioActionPerformed
+        modUsuario();
     }//GEN-LAST:event_btnModUsuarioActionPerformed
 
     private void txtEditarClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditarClaveKeyTyped
@@ -1520,7 +1619,7 @@ public class Aplicacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAceptarEditarUsuarioActionPerformed
 
-    private void btnNuevaNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaNoticiaActionPerformed
+    private void nuevaNoticia() {
         lblFecha.setText(df.format(date));
         lblDepartamento.setText(mainAplicacion.getTitle());
         jTextArea1.setText("");
@@ -1534,6 +1633,10 @@ public class Aplicacion extends javax.swing.JFrame {
         nuevaNoticia.setLocationRelativeTo(null);
         nuevaNoticia.pack();
         nuevaNoticia.setVisible(true);
+    }
+    
+    private void btnNuevaNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaNoticiaActionPerformed
+        nuevaNoticia();
     }//GEN-LAST:event_btnNuevaNoticiaActionPerformed
 
     private void btnImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImagenActionPerformed
@@ -1547,7 +1650,6 @@ public class Aplicacion extends javax.swing.JFrame {
             //El path absoluto del archivo elegido
             imagen_seleccionada = this.jFileChooser1.getSelectedFile();
             System.out.println(imagen_seleccionada);
-            buttonGroup1.clearSelection();
         }
     }//GEN-LAST:event_btnImagenActionPerformed
 
@@ -1825,45 +1927,42 @@ public class Aplicacion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVistaPreviaActionPerformed
 
     private void btnAceptarNuevaNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarNuevaNoticiaActionPerformed
+        boolean correcto = true;
         if (image==null) {
+            correcto = false;
             JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
         } if (jTextArea1.getText().equals("")) {
+            correcto = false;
             JOptionPane.showMessageDialog(null, "Debe escribir algo");
-        } else {
-            try {
-                boolean insertar = false;
-                
-                int idNoticia = con.maxIdNot();// ID de la noticia
-                String departamento = lblDepartamento.getText();// Departamento al que pertenece la noticia
-                
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                BufferedImage smallImage = resize(image, 600, 400);
-                ImageIO.write(smallImage, "png", baos);
-                this.imageblob = baos.toByteArray();// Imagen convertida a bytes para guardarla en la base de datos
-                
-                String fecha = lblFecha.getText();// Fecha de la noticia
-                
-                BufferedImage largeImage = resize(image, 1200, 768);
-                File imagen = new File(lblDepartamento.getText()+"_"+con.maxIdNot()+"_"+lblFecha.getText());
-                String ruta = imagen.getName();// Ruta de la imagen
-                //String ruta = "/home/pi/Pictures/" + imagen.getName();
-                //HE eliminado esto porque ha de guardarlo de forma temporal en la carpeta actual y luego borrar el fichero
-                System.out.println(ruta);
-                ImageIO.write(largeImage, "png", new File(ruta));// Se guarda la imagen reescalada para mostrarla en la televisión, en la ruta especificada
-                imagen.delete();//Importante, borrar la imagen para que no quede en el pc local
-                int diasVigencia = 0;// Días de vigencia
-                
+        } if (!positionSelected()) {
+            correcto = false;
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una posición");
+        }else {
+            if (correcto) {
                 try {
-                    diasVigencia = (int) comboDiasVigencia.getSelectedItem();
-                    insertar = true;
-                } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Días de vigencia incorrectos");
-                }
-                
-                int vigente = 0;// Booleano de si es vigente o no | 0->false 1->true
-                int publica = 0;// Booleano de si es pública o no | 0->false 1->true
-                
-                if (insertar) {
+                    int idNoticia = con.maxIdNot();// ID de la noticia
+                    String departamento = lblDepartamento.getText();// Departamento al que pertenece la noticia
+
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    BufferedImage smallImage = resize(image, 600, 400);
+                    ImageIO.write(smallImage, "png", baos);
+                    this.imageblob = baos.toByteArray();// Imagen convertida a bytes para guardarla en la base de datos
+
+                    String fecha = lblFecha.getText();// Fecha de la noticia
+
+                    BufferedImage largeImage = resize(image, 1200, 768);
+                    File imagen = new File(lblDepartamento.getText()+"_"+Integer.toString(con.maxIdNot())+"_"+lblFecha.getText());
+                    String ruta = imagen.getName();// Ruta de la imagen
+                    //String ruta = "/home/pi/Pictures/" + imagen.getName();
+                    //HE eliminado esto porque ha de guardarlo de forma temporal en la carpeta actual y luego borrar el fichero
+                    System.out.println(ruta);
+                    ImageIO.write(largeImage, "png", new File(ruta));// Se guarda la imagen reescalada para mostrarla en la televisión, en la ruta especificada
+                    imagen.delete();//Importante, borrar la imagen para que no quede en el pc local
+                    int diasVigencia = (int) comboDiasVigencia.getSelectedItem();// Días de vigencia
+
+                    int vigente = 0;// Booleano de si es vigente o no | 0->false 1->true
+                    int publica = 0;// Booleano de si es pública o no | 0->false 1->true
+
                     con.addNoticia(new Noticia(idNoticia, diasVigencia, vigente, publica, departamento, fecha, ruta, imageblob));
                     imagen_seleccionada = null;
                     image = null;
@@ -1872,20 +1971,21 @@ public class Aplicacion extends javax.swing.JFrame {
                     btnVerNoticia.setEnabled(false);
                     listarNoticiasUser();
                     JOptionPane.showMessageDialog(null, "Noticia creada correctamente");
+
+                    //ENVÍA IMAGEN
+                    /*try {
+                        this.envia_imagen_sftp_y_reinicio(ruta);
+                    } catch (JSchException ex) {
+                        Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SftpException ex) {
+                        Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
+                    }*/
+
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
-                
-                //ENVÍA IMAGEN
-                try {
-                    this.envia_imagen_sftp_y_reinicio(ruta);
-                } catch (JSchException ex) {
-                    Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SftpException ex) {
-                    Logger.getLogger(Aplicacion.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-            } catch (IOException ex) {
-                ex.printStackTrace();
             }
+            
         }
     }//GEN-LAST:event_btnAceptarNuevaNoticiaActionPerformed
 
@@ -1957,19 +2057,33 @@ public class Aplicacion extends javax.swing.JFrame {
     }
             
     private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
+        int r = jTable1.rowAtPoint(evt.getPoint());
+        if (r >= 0 && r < jTable1.getRowCount()) {
+            jTable1.setRowSelectionInterval(r, r);
+        } else {
+            jTable1.clearSelection();
+        }
+        
         if (jTable1.getSelectedRow()>-1) {
             btnVerNoticia.setEnabled(true);
         }
     }//GEN-LAST:event_jTable1MouseReleased
 
     private void tablaTodasNoticiasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaTodasNoticiasMouseReleased
+        int r = tablaTodasNoticias.rowAtPoint(evt.getPoint());
+        if (r >= 0 && r < tablaTodasNoticias.getRowCount()) {
+            tablaTodasNoticias.setRowSelectionInterval(r, r);
+        } else {
+            tablaTodasNoticias.clearSelection();
+        }
+        
         if (tablaTodasNoticias.getSelectedRow()>-1) {
             btnEliminarNoticia.setEnabled(true);
             btnEditarNoticia.setEnabled(true);
         }
     }//GEN-LAST:event_tablaTodasNoticiasMouseReleased
 
-    private void btnEditarNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarNoticiaActionPerformed
+    private void editarNoticia() {
         int idNot = (int) tablaTodasNoticias.getValueAt(tablaTodasNoticias.getSelectedRow(), 0);
         System.out.println("Id seleccionado: "+idNot);
         Noticia noticia = con.getNoticia(idNot);
@@ -2011,6 +2125,10 @@ public class Aplicacion extends javax.swing.JFrame {
         chkPublica.setEnabled(true);
         editarNoticia.setLocationRelativeTo(null);
         editarNoticia.setVisible(true);
+    }
+    
+    private void btnEditarNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarNoticiaActionPerformed
+        editarNoticia();
     }//GEN-LAST:event_btnEditarNoticiaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -2047,7 +2165,7 @@ public class Aplicacion extends javax.swing.JFrame {
         editarNoticia.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void btnVerNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerNoticiaActionPerformed
+    private void verNoticia() {
         int idNot = (int) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
         System.out.println("Id seleccionado: "+idNot);
         Noticia noticia = con.getNoticia(idNot);
@@ -2089,32 +2207,86 @@ public class Aplicacion extends javax.swing.JFrame {
         chkPublica.setEnabled(false);
         editarNoticia.setLocationRelativeTo(null);
         editarNoticia.setVisible(true);
+    }
+    
+    private void btnVerNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerNoticiaActionPerformed
+        verNoticia();
     }//GEN-LAST:event_btnVerNoticiaActionPerformed
 
+    private void eliminarNoticia() {
+        // 0-Sí 1-No
+        if (JOptionPane.showConfirmDialog(null, "¿Desea eliminar la noticia?", "Eliminar noticia", JOptionPane.YES_NO_OPTION)==0) {
+            int idNot = (int) tablaTodasNoticias.getValueAt(tablaTodasNoticias.getSelectedRow(), 0);
+            con.delNoticia(idNot);
+            JOptionPane.showMessageDialog(null, "Noticia eliminada correctamente");
+            listarNoticiasAdmin();
+        }
+    }
+    
     private void btnEliminarNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarNoticiaActionPerformed
-        int idNot = (int) tablaTodasNoticias.getValueAt(tablaTodasNoticias.getSelectedRow(), 0);
-        con.delNoticia(idNot);
-        JOptionPane.showMessageDialog(null, "Noticia eliminada correctamente");
-        listarNoticiasAdmin();
+        eliminarNoticia();
     }//GEN-LAST:event_btnEliminarNoticiaActionPerformed
 
     private void btnCancelarNuevaNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarNuevaNoticiaActionPerformed
         nuevaNoticia.setVisible(false);
     }//GEN-LAST:event_btnCancelarNuevaNoticiaActionPerformed
 
-    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
-        if (positionSelected())
-            buttonGroup1.clearSelection();
-    }//GEN-LAST:event_jTextArea1KeyTyped
-
     private void btnFontColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFontColorActionPerformed
         this.fontColor = this.jColorChooser1.showDialog(null, "Selecciona un color", Color.BLACK);
+        lblColorSample.setBackground(fontColor);
     }//GEN-LAST:event_btnFontColorActionPerformed
 
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
         this.fontSize = (int) jSpinner1.getModel().getValue();
-        System.out.println(fontSize);
     }//GEN-LAST:event_jSpinner1StateChanged
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if (evt.getClickCount()==2)
+            verNoticia();
+        
+        if (evt.getButton()==3)
+            this.popupNoticiasUser.show(evt.getComponent(), evt.getX(), evt.getY());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void menuNuevaNoticiaUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNuevaNoticiaUserActionPerformed
+        nuevaNoticia();
+    }//GEN-LAST:event_menuNuevaNoticiaUserActionPerformed
+
+    private void menuVerNoticiaUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVerNoticiaUserActionPerformed
+        verNoticia();
+    }//GEN-LAST:event_menuVerNoticiaUserActionPerformed
+
+    private void menuNuevoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNuevoUserActionPerformed
+        nuevoUsuario();
+    }//GEN-LAST:event_menuNuevoUserActionPerformed
+
+    private void tablaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaUsuariosMouseClicked
+        if (evt.getClickCount()==2)
+            modUsuario();
+        
+        if (evt.getButton()==3)
+            this.popupUsuarios.show(evt.getComponent(), evt.getX(), evt.getY());
+    }//GEN-LAST:event_tablaUsuariosMouseClicked
+
+    private void menuModUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuModUserActionPerformed
+        modUsuario();
+    }//GEN-LAST:event_menuModUserActionPerformed
+
+    private void menuBorrarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBorrarUserActionPerformed
+        eliminarUsuario();
+    }//GEN-LAST:event_menuBorrarUserActionPerformed
+
+    private void tablaTodasNoticiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaTodasNoticiasMouseClicked
+        if (evt.getClickCount()==2)
+            editarNoticia();
+        
+        if (evt.getButton()==3)
+            this.popupNoticiasAdmin.show(evt.getComponent(), evt.getX(), evt.getY());
+    }//GEN-LAST:event_tablaTodasNoticiasMouseClicked
+
+    private void menuEditarNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarNoticiaActionPerformed
+        editarNoticia();
+    }//GEN-LAST:event_menuEditarNoticiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2224,6 +2396,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblClave;
+    private javax.swing.JLabel lblColorSample;
     private javax.swing.JLabel lblDepartamento;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFortaleza;
@@ -2231,6 +2404,13 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JMenuItem logout;
     private javax.swing.JFrame mainAplicacion;
+    private javax.swing.JMenuItem menuBorrarUser;
+    private javax.swing.JMenuItem menuEditarNoticia;
+    private javax.swing.JMenuItem menuEliminarNoticia;
+    private javax.swing.JMenuItem menuModUser;
+    private javax.swing.JMenuItem menuNuevaNoticiaUser;
+    private javax.swing.JMenuItem menuNuevoUser;
+    private javax.swing.JMenuItem menuVerNoticiaUser;
     private javax.swing.JRadioButton middleCenter;
     private javax.swing.JRadioButton middleLeft;
     private javax.swing.JRadioButton middleRight;
@@ -2242,6 +2422,9 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JPanel panelUsuarios;
     private javax.swing.JPanel panelVistaPrevia;
     private javax.swing.JDialog peticionIP;
+    private javax.swing.JPopupMenu popupNoticiasAdmin;
+    private javax.swing.JPopupMenu popupNoticiasUser;
+    private javax.swing.JPopupMenu popupUsuarios;
     private javax.swing.JMenuItem salirMenuItem;
     private javax.swing.JTable tablaTodasNoticias;
     private javax.swing.JTable tablaUsuarios;
