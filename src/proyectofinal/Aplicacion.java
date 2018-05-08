@@ -250,6 +250,7 @@ public class Aplicacion extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         btnFontColor = new javax.swing.JButton();
         lblColorSample = new javax.swing.JLabel();
+        lblNombreImagen = new javax.swing.JLabel();
         buttonGroup1 = new javax.swing.ButtonGroup();
         vistaPrevia = new javax.swing.JDialog();
         panelVistaPrevia = new javax.swing.JPanel();
@@ -360,6 +361,7 @@ public class Aplicacion extends javax.swing.JFrame {
             tablaUsuarios.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        btnEliminarUsuario.setMnemonic('E');
         btnEliminarUsuario.setText("Eliminar");
         btnEliminarUsuario.setEnabled(false);
         btnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -368,6 +370,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        btnModUsuario.setMnemonic('M');
         btnModUsuario.setText("Modificar");
         btnModUsuario.setEnabled(false);
         btnModUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -376,6 +379,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        btnNuevoUsuario.setMnemonic('N');
         btnNuevoUsuario.setText("Nuevo");
         btnNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,6 +453,7 @@ public class Aplicacion extends javax.swing.JFrame {
             tablaTodasNoticias.getColumnModel().getColumn(5).setResizable(false);
         }
 
+        btnEliminarNoticia.setMnemonic('E');
         btnEliminarNoticia.setText("Eliminar");
         btnEliminarNoticia.setEnabled(false);
         btnEliminarNoticia.addActionListener(new java.awt.event.ActionListener() {
@@ -457,7 +462,8 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
-        btnEditarNoticia.setText("Ver");
+        btnEditarNoticia.setMnemonic('M');
+        btnEditarNoticia.setText("Modificar");
         btnEditarNoticia.setEnabled(false);
         btnEditarNoticia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -573,6 +579,7 @@ public class Aplicacion extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        btnNuevaNoticia.setMnemonic('N');
         btnNuevaNoticia.setText("Nueva");
         btnNuevaNoticia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -580,6 +587,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        btnVerNoticia.setMnemonic('V');
         btnVerNoticia.setText("Ver");
         btnVerNoticia.setEnabled(false);
         btnVerNoticia.addActionListener(new java.awt.event.ActionListener() {
@@ -637,8 +645,11 @@ public class Aplicacion extends javax.swing.JFrame {
                 .addComponent(panelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        archivoMenu.setMnemonic('A');
         archivoMenu.setText("Archivo");
 
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/salir.png"))); // NOI18N
+        logout.setMnemonic('C');
         logout.setText("Cerrar sesión");
         logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -647,6 +658,8 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         archivoMenu.add(logout);
 
+        salirMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/cerrar.png"))); // NOI18N
+        salirMenuItem.setMnemonic('S');
         salirMenuItem.setText("Salir");
         salirMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -734,6 +747,7 @@ public class Aplicacion extends javax.swing.JFrame {
 
         jLabel6.setText("Fortaleza de la contraseña");
 
+        btnCancelarNuevoUsuario.setMnemonic('C');
         btnCancelarNuevoUsuario.setText("Cancelar");
         btnCancelarNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -741,6 +755,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        btnAceptarNuevoUsuario.setMnemonic('A');
         btnAceptarNuevoUsuario.setText("Aceptar");
         btnAceptarNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -806,6 +821,7 @@ public class Aplicacion extends javax.swing.JFrame {
 
         jLabel9.setText("Fortaleza de la contraseña");
 
+        btnCancelarEditarUsuario.setMnemonic('C');
         btnCancelarEditarUsuario.setText("Cancelar");
         btnCancelarEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -813,6 +829,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        btnAceptarEditarUsuario.setMnemonic('A');
         btnAceptarEditarUsuario.setText("Aceptar");
         btnAceptarEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -891,6 +908,7 @@ public class Aplicacion extends javax.swing.JFrame {
 
         jLabel13.setText("Departamento: ");
 
+        btnImagen.setMnemonic('S');
         btnImagen.setText("Seleccionar imagen");
         btnImagen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -984,6 +1002,7 @@ public class Aplicacion extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnVistaPrevia.setMnemonic('V');
         btnVistaPrevia.setText("Vista previa");
         btnVistaPrevia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -993,6 +1012,7 @@ public class Aplicacion extends javax.swing.JFrame {
 
         jLabel17.setText("días");
 
+        btnCancelarNuevaNoticia.setMnemonic('C');
         btnCancelarNuevaNoticia.setText("Cancelar");
         btnCancelarNuevaNoticia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1000,6 +1020,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        btnAceptarNuevaNoticia.setMnemonic('A');
         btnAceptarNuevaNoticia.setText("Aceptar");
         btnAceptarNuevaNoticia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1007,7 +1028,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
-        comboDiasVigencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " 7", "14", "21", "30", "60", "90", "180" }));
+        comboDiasVigencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7", "14", "21", "30", "60", "90", "180" }));
 
         jLabel22.setText("Tamaño de letra");
 
@@ -1018,6 +1039,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        btnFontColor.setMnemonic('o');
         btnFontColor.setText("Color de letra");
         btnFontColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1034,12 +1056,12 @@ public class Aplicacion extends javax.swing.JFrame {
             nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                     .addComponent(btnImagen)
                     .addComponent(jLabel14)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
@@ -1049,7 +1071,8 @@ public class Aplicacion extends javax.swing.JFrame {
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addComponent(btnFontColor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblColorSample, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblColorSample, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNombreImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
@@ -1097,7 +1120,9 @@ public class Aplicacion extends javax.swing.JFrame {
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addComponent(btnImagen)
-                        .addGap(26, 26, 26)
+                        .addGap(3, 3, 3)
+                        .addComponent(lblNombreImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1170,6 +1195,7 @@ public class Aplicacion extends javax.swing.JFrame {
 
         chkPublica.setText("Pública");
 
+        jButton1.setMnemonic('V');
         jButton1.setText("Ver imagen");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1184,6 +1210,7 @@ public class Aplicacion extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setMnemonic('A');
         jButton3.setText("Aceptar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1272,7 +1299,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        menuNuevaNoticiaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/New16.gif"))); // NOI18N
+        menuNuevaNoticiaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/nuevo.png"))); // NOI18N
         menuNuevaNoticiaUser.setText("Nueva");
         menuNuevaNoticiaUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1281,7 +1308,7 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         popupNoticiasUser.add(menuNuevaNoticiaUser);
 
-        menuVerNoticiaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Properties16.gif"))); // NOI18N
+        menuVerNoticiaUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/ver.png"))); // NOI18N
         menuVerNoticiaUser.setText("Ver");
         menuVerNoticiaUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1290,7 +1317,7 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         popupNoticiasUser.add(menuVerNoticiaUser);
 
-        menuNuevoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/New16.gif"))); // NOI18N
+        menuNuevoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/nuevo_user.png"))); // NOI18N
         menuNuevoUser.setText("Nuevo");
         menuNuevoUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1299,7 +1326,7 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         popupUsuarios.add(menuNuevoUser);
 
-        menuModUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Edit16.gif"))); // NOI18N
+        menuModUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/editar_user.png"))); // NOI18N
         menuModUser.setText("Modificar");
         menuModUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1308,7 +1335,7 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         popupUsuarios.add(menuModUser);
 
-        menuBorrarUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Delete16.gif"))); // NOI18N
+        menuBorrarUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/eliminar_user.png"))); // NOI18N
         menuBorrarUser.setText("Eliminar");
         menuBorrarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1317,8 +1344,8 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         popupUsuarios.add(menuBorrarUser);
 
-        menuEditarNoticia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Properties16.gif"))); // NOI18N
-        menuEditarNoticia.setText("Ver");
+        menuEditarNoticia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/editar.png"))); // NOI18N
+        menuEditarNoticia.setText("Modificar");
         menuEditarNoticia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuEditarNoticiaActionPerformed(evt);
@@ -1326,8 +1353,13 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         popupNoticiasAdmin.add(menuEditarNoticia);
 
-        menuEliminarNoticia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/toolbarButtonGraphics/general/Delete16.gif"))); // NOI18N
+        menuEliminarNoticia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/eliminar.png"))); // NOI18N
         menuEliminarNoticia.setText("Eliminar");
+        menuEliminarNoticia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEliminarNoticiaActionPerformed(evt);
+            }
+        });
         popupNoticiasAdmin.add(menuEliminarNoticia);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1623,6 +1655,7 @@ public class Aplicacion extends javax.swing.JFrame {
         lblFecha.setText(df.format(date));
         lblDepartamento.setText(mainAplicacion.getTitle());
         jTextArea1.setText("");
+        lblNombreImagen.setText("");
         comboDiasVigencia.setSelectedIndex(0);
         buttonGroup1.clearSelection();
         jSpinner1.getModel().setValue(20);
@@ -1649,6 +1682,7 @@ public class Aplicacion extends javax.swing.JFrame {
         if (opcion == JFileChooser.APPROVE_OPTION) {
             //El path absoluto del archivo elegido
             imagen_seleccionada = this.jFileChooser1.getSelectedFile();
+            lblNombreImagen.setText(imagen_seleccionada.getName());
             System.out.println(imagen_seleccionada);
         }
     }//GEN-LAST:event_btnImagenActionPerformed
@@ -1958,7 +1992,7 @@ public class Aplicacion extends javax.swing.JFrame {
                     System.out.println(ruta);
                     ImageIO.write(largeImage, "png", new File(ruta));// Se guarda la imagen reescalada para mostrarla en la televisión, en la ruta especificada
                     imagen.delete();//Importante, borrar la imagen para que no quede en el pc local
-                    int diasVigencia = (int) comboDiasVigencia.getSelectedItem();// Días de vigencia
+                    int diasVigencia = Integer.parseInt(comboDiasVigencia.getSelectedItem().toString());// Días de vigencia
 
                     int vigente = 0;// Booleano de si es vigente o no | 0->false 1->true
                     int publica = 0;// Booleano de si es pública o no | 0->false 1->true
@@ -2121,6 +2155,7 @@ public class Aplicacion extends javax.swing.JFrame {
         
         jButton3.setVisible(true);
         jButton2.setText("Cancelar");
+        jButton2.setMnemonic('C');
         chkVigente.setEnabled(true);
         chkPublica.setEnabled(true);
         editarNoticia.setLocationRelativeTo(null);
@@ -2203,6 +2238,7 @@ public class Aplicacion extends javax.swing.JFrame {
         
         jButton3.setVisible(false);
         jButton2.setText("Aceptar");
+        jButton2.setMnemonic('A');
         chkVigente.setEnabled(false);
         chkPublica.setEnabled(false);
         editarNoticia.setLocationRelativeTo(null);
@@ -2287,6 +2323,10 @@ public class Aplicacion extends javax.swing.JFrame {
     private void menuEditarNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarNoticiaActionPerformed
         editarNoticia();
     }//GEN-LAST:event_menuEditarNoticiaActionPerformed
+
+    private void menuEliminarNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEliminarNoticiaActionPerformed
+        eliminarNoticia();
+    }//GEN-LAST:event_menuEliminarNoticiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2401,6 +2441,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFortaleza;
     private javax.swing.JLabel lblFortaleza2;
+    private javax.swing.JLabel lblNombreImagen;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JMenuItem logout;
     private javax.swing.JFrame mainAplicacion;

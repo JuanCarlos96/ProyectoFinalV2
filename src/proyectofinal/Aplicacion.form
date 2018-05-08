@@ -226,6 +226,7 @@
                         </Container>
                         <Component class="javax.swing.JButton" name="btnEliminarUsuario">
                           <Properties>
+                            <Property name="mnemonic" type="int" value="69"/>
                             <Property name="text" type="java.lang.String" value="Eliminar"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
@@ -235,6 +236,7 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btnModUsuario">
                           <Properties>
+                            <Property name="mnemonic" type="int" value="77"/>
                             <Property name="text" type="java.lang.String" value="Modificar"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
@@ -244,6 +246,7 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btnNuevoUsuario">
                           <Properties>
+                            <Property name="mnemonic" type="int" value="78"/>
                             <Property name="text" type="java.lang.String" value="Nuevo"/>
                           </Properties>
                           <Events>
@@ -346,6 +349,7 @@
                         </Container>
                         <Component class="javax.swing.JButton" name="btnEliminarNoticia">
                           <Properties>
+                            <Property name="mnemonic" type="int" value="69"/>
                             <Property name="text" type="java.lang.String" value="Eliminar"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
@@ -355,7 +359,8 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btnEditarNoticia">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Ver"/>
+                            <Property name="mnemonic" type="int" value="77"/>
+                            <Property name="text" type="java.lang.String" value="Modificar"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
@@ -452,6 +457,7 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnNuevaNoticia">
                   <Properties>
+                    <Property name="mnemonic" type="int" value="78"/>
                     <Property name="text" type="java.lang.String" value="Nueva"/>
                   </Properties>
                   <Events>
@@ -460,6 +466,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnVerNoticia">
                   <Properties>
+                    <Property name="mnemonic" type="int" value="86"/>
                     <Property name="text" type="java.lang.String" value="Ver"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
@@ -475,11 +482,16 @@
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="archivoMenu">
               <Properties>
+                <Property name="mnemonic" type="int" value="65"/>
                 <Property name="text" type="java.lang.String" value="Archivo"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="logout">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/proyectofinal/icons/salir.png"/>
+                    </Property>
+                    <Property name="mnemonic" type="int" value="67"/>
                     <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
                   </Properties>
                   <Events>
@@ -488,6 +500,10 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="salirMenuItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/proyectofinal/icons/cerrar.png"/>
+                    </Property>
+                    <Property name="mnemonic" type="int" value="83"/>
                     <Property name="text" type="java.lang.String" value="Salir"/>
                   </Properties>
                   <Events>
@@ -651,6 +667,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnCancelarNuevoUsuario">
           <Properties>
+            <Property name="mnemonic" type="int" value="67"/>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
@@ -659,6 +676,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAceptarNuevoUsuario">
           <Properties>
+            <Property name="mnemonic" type="int" value="65"/>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
           <Events>
@@ -769,6 +787,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnCancelarEditarUsuario">
           <Properties>
+            <Property name="mnemonic" type="int" value="67"/>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
@@ -777,6 +796,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAceptarEditarUsuario">
           <Properties>
+            <Property name="mnemonic" type="int" value="65"/>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
           <Events>
@@ -814,13 +834,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblFecha" min="-2" pref="99" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane4" min="-2" pref="221" max="-2" attributes="0"/>
+                      <Component id="jScrollPane4" pref="221" max="32767" attributes="0"/>
                       <Component id="btnImagen" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -833,6 +853,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblColorSample" min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="lblNombreImagen" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -897,7 +918,9 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btnImagen" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="lblNombreImagen" min="-2" pref="17" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane4" min="-2" pref="157" max="-2" attributes="0"/>
@@ -949,6 +972,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnImagen">
           <Properties>
+            <Property name="mnemonic" type="int" value="83"/>
             <Property name="text" type="java.lang.String" value="Seleccionar imagen"/>
           </Properties>
           <Events>
@@ -1129,6 +1153,7 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnVistaPrevia">
           <Properties>
+            <Property name="mnemonic" type="int" value="86"/>
             <Property name="text" type="java.lang.String" value="Vista previa"/>
           </Properties>
           <Events>
@@ -1142,6 +1167,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnCancelarNuevaNoticia">
           <Properties>
+            <Property name="mnemonic" type="int" value="67"/>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
@@ -1150,6 +1176,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAceptarNuevaNoticia">
           <Properties>
+            <Property name="mnemonic" type="int" value="65"/>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
           <Events>
@@ -1160,7 +1187,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="7">
-                <StringItem index="0" value=" 7"/>
+                <StringItem index="0" value="7"/>
                 <StringItem index="1" value="14"/>
                 <StringItem index="2" value="21"/>
                 <StringItem index="3" value="30"/>
@@ -1191,6 +1218,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnFontColor">
           <Properties>
+            <Property name="mnemonic" type="int" value="111"/>
             <Property name="text" type="java.lang.String" value="Color de letra"/>
           </Properties>
           <Events>
@@ -1204,6 +1232,8 @@
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNombreImagen">
         </Component>
       </SubComponents>
     </Container>
@@ -1414,6 +1444,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
+            <Property name="mnemonic" type="int" value="86"/>
             <Property name="text" type="java.lang.String" value="Ver imagen"/>
           </Properties>
           <Events>
@@ -1430,6 +1461,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
+            <Property name="mnemonic" type="int" value="65"/>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
           <Events>
@@ -1449,7 +1481,7 @@
         <MenuItem class="javax.swing.JMenuItem" name="menuNuevaNoticiaUser">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/toolbarButtonGraphics/general/New16.gif"/>
+              <Image iconType="3" name="/proyectofinal/icons/nuevo.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nueva"/>
           </Properties>
@@ -1460,7 +1492,7 @@
         <MenuItem class="javax.swing.JMenuItem" name="menuVerNoticiaUser">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/toolbarButtonGraphics/general/Properties16.gif"/>
+              <Image iconType="3" name="/proyectofinal/icons/ver.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ver"/>
           </Properties>
@@ -1479,7 +1511,7 @@
         <MenuItem class="javax.swing.JMenuItem" name="menuNuevoUser">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/toolbarButtonGraphics/general/New16.gif"/>
+              <Image iconType="3" name="/proyectofinal/icons/nuevo_user.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
           </Properties>
@@ -1490,7 +1522,7 @@
         <MenuItem class="javax.swing.JMenuItem" name="menuModUser">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/toolbarButtonGraphics/general/Edit16.gif"/>
+              <Image iconType="3" name="/proyectofinal/icons/editar_user.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
@@ -1501,7 +1533,7 @@
         <MenuItem class="javax.swing.JMenuItem" name="menuBorrarUser">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/toolbarButtonGraphics/general/Delete16.gif"/>
+              <Image iconType="3" name="/proyectofinal/icons/eliminar_user.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
@@ -1520,9 +1552,9 @@
         <MenuItem class="javax.swing.JMenuItem" name="menuEditarNoticia">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/toolbarButtonGraphics/general/Properties16.gif"/>
+              <Image iconType="3" name="/proyectofinal/icons/editar.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ver"/>
+            <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEditarNoticiaActionPerformed"/>
@@ -1531,10 +1563,13 @@
         <MenuItem class="javax.swing.JMenuItem" name="menuEliminarNoticia">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/toolbarButtonGraphics/general/Delete16.gif"/>
+              <Image iconType="3" name="/proyectofinal/icons/eliminar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEliminarNoticiaActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
