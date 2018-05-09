@@ -68,8 +68,8 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jToolBar1" min="-2" pref="35" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="417" max="32767" attributes="0"/>
+                          <Component id="jToolBar1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="401" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
@@ -91,6 +91,10 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="btnUsuariosAdmin">
                       <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/proyectofinal/icons/grupo_usuarios.png"/>
+                        </Property>
+                        <Property name="mnemonic" type="int" value="85"/>
                         <Property name="text" type="java.lang.String" value="Usuarios"/>
                         <Property name="focusable" type="boolean" value="false"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -102,6 +106,10 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoticiasAdmin">
                       <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/proyectofinal/icons/noticias.png"/>
+                        </Property>
+                        <Property name="mnemonic" type="int" value="111"/>
                         <Property name="text" type="java.lang.String" value="Noticias"/>
                         <Property name="focusable" type="boolean" value="false"/>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -220,6 +228,7 @@
                               <Events>
                                 <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaUsuariosMouseReleased"/>
                                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaUsuariosMouseClicked"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tablaUsuariosKeyPressed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -343,6 +352,7 @@
                               <Events>
                                 <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaTodasNoticiasMouseReleased"/>
                                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaTodasNoticiasMouseClicked"/>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tablaTodasNoticiasKeyPressed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -451,6 +461,7 @@
                       <Events>
                         <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseReleased"/>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTable1KeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -851,7 +862,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btnFontColor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblColorSample" min="-2" pref="86" max="-2" attributes="0"/>
+                          <Component id="lblColorSample" min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                       <Component id="lblNombreImagen" alignment="0" max="32767" attributes="0"/>
                   </Group>

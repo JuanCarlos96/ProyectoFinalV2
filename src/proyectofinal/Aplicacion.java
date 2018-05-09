@@ -300,6 +300,8 @@ public class Aplicacion extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setEnabled(false);
 
+        btnUsuariosAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/grupo_usuarios.png"))); // NOI18N
+        btnUsuariosAdmin.setMnemonic('U');
         btnUsuariosAdmin.setText("Usuarios");
         btnUsuariosAdmin.setFocusable(false);
         btnUsuariosAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -311,6 +313,8 @@ public class Aplicacion extends javax.swing.JFrame {
         });
         jToolBar1.add(btnUsuariosAdmin);
 
+        btnNoticiasAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal/icons/noticias.png"))); // NOI18N
+        btnNoticiasAdmin.setMnemonic('o');
         btnNoticiasAdmin.setText("Noticias");
         btnNoticiasAdmin.setFocusable(false);
         btnNoticiasAdmin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -353,6 +357,11 @@ public class Aplicacion extends javax.swing.JFrame {
             }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaUsuariosMouseClicked(evt);
+            }
+        });
+        tablaUsuarios.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablaUsuariosKeyPressed(evt);
             }
         });
         jScrollPane1.setViewportView(tablaUsuarios);
@@ -441,6 +450,11 @@ public class Aplicacion extends javax.swing.JFrame {
             }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaTodasNoticiasMouseClicked(evt);
+            }
+        });
+        tablaTodasNoticias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tablaTodasNoticiasKeyPressed(evt);
             }
         });
         jScrollPane2.setViewportView(tablaTodasNoticias);
@@ -533,8 +547,8 @@ public class Aplicacion extends javax.swing.JFrame {
         panelAdminLayout.setVerticalGroup(
             panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminLayout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 417, Short.MAX_VALUE))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 401, Short.MAX_VALUE))
             .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminLayout.createSequentialGroup()
                     .addGap(0, 42, Short.MAX_VALUE)
@@ -570,6 +584,11 @@ public class Aplicacion extends javax.swing.JFrame {
             }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
+            }
+        });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable1KeyPressed(evt);
             }
         });
         jScrollPane3.setViewportView(jTable1);
@@ -1071,7 +1090,7 @@ public class Aplicacion extends javax.swing.JFrame {
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addComponent(btnFontColor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblColorSample, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblColorSample, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblNombreImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
@@ -2327,6 +2346,51 @@ public class Aplicacion extends javax.swing.JFrame {
     private void menuEliminarNoticiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEliminarNoticiaActionPerformed
         eliminarNoticia();
     }//GEN-LAST:event_menuEliminarNoticiaActionPerformed
+
+    private void tablaUsuariosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaUsuariosKeyPressed
+        // 127-Suprimir 69-E 77-M
+        if (tablaUsuarios.getSelectedRow()>-1) {
+            switch (evt.getKeyCode()) {
+                case 127:
+                    eliminarUsuario();
+                    break;
+                case 69:
+                    eliminarUsuario();
+                    break;
+                case 77:
+                    modUsuario();
+                    break;
+            }
+        }
+    }//GEN-LAST:event_tablaUsuariosKeyPressed
+
+    private void tablaTodasNoticiasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaTodasNoticiasKeyPressed
+        // 127-Suprimir 69-E 77-M
+        if (tablaTodasNoticias.getSelectedRow()>-1) {
+            switch (evt.getKeyCode()) {
+                case 127:
+                    eliminarNoticia();
+                    break;
+                case 69:
+                    eliminarNoticia();
+                    break;
+                case 77:
+                    editarNoticia();
+                    break;
+            }
+        }
+    }//GEN-LAST:event_tablaTodasNoticiasKeyPressed
+
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+        // 86-V
+        if (jTable1.getSelectedRow()>-1) {
+            switch (evt.getKeyCode()) {
+                case 86:
+                    verNoticia();
+                    break;
+            }
+        }
+    }//GEN-LAST:event_jTable1KeyPressed
 
     /**
      * @param args the command line arguments
