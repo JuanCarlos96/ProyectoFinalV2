@@ -893,7 +893,6 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnVistaPrevia" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
@@ -901,8 +900,9 @@
                                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jPanel1" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -926,7 +926,7 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btnImagen" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -939,7 +939,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel1" max="32767" attributes="0"/>
+                          <Component id="jPanel1" min="-2" pref="212" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1029,63 +1029,9 @@
             </Property>
           </Properties>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bottomLeft" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="topLeft" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="middleLeft" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="81" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="middleCenter" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                              <Component id="middleRight" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="topCenter" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                              <Component id="topRight" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="bottomCenter" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                              <Component id="bottomRight" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="topCenter" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="topRight" min="-2" max="-2" attributes="0"/>
-                          <Component id="topLeft" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="middleCenter" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="middleLeft" min="-2" max="-2" attributes="0"/>
-                          <Component id="middleRight" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bottomLeft" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="bottomRight" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="bottomCenter" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+            <Property name="columns" type="int" value="3"/>
+            <Property name="rows" type="int" value="3"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JRadioButton" name="topLeft">
@@ -1094,54 +1040,7 @@
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="topLeft"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="topRight">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="actionCommand" type="java.lang.String" value="topRight"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="bottomLeft">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="actionCommand" type="java.lang.String" value="bottomLeft"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="bottomRight">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="actionCommand" type="java.lang.String" value="bottomRight"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="middleLeft">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="actionCommand" type="java.lang.String" value="middleLeft"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="middleRight">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="actionCommand" type="java.lang.String" value="middleRight"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="bottomCenter">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="actionCommand" type="java.lang.String" value="bottomCenter"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="topCenter">
@@ -1150,6 +1049,25 @@
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="topCenter"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="topRight">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" value="topRight"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="middleLeft">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" value="middleLeft"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="middleCenter">
@@ -1158,6 +1076,43 @@
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
                 <Property name="actionCommand" type="java.lang.String" value="middleCenter"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="middleRight">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" value="middleRight"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bottomLeft">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" value="bottomLeft"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bottomCenter">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" value="bottomCenter"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bottomRight">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" value="bottomRight"/>
+                <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
           </SubComponents>

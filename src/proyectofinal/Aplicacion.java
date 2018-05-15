@@ -46,7 +46,7 @@ public class Aplicacion extends javax.swing.JFrame {
     private BufferedImage image = null;
     private byte[] imageblob = null;
     private File imagen_seleccionada = null;
-    private int fontSize = 20;
+    private int fontSize = 50;
     private Color fontColor = Color.BLACK;
 
     /**
@@ -233,14 +233,14 @@ public class Aplicacion extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         topLeft = new javax.swing.JRadioButton();
-        topRight = new javax.swing.JRadioButton();
-        bottomLeft = new javax.swing.JRadioButton();
-        bottomRight = new javax.swing.JRadioButton();
-        middleLeft = new javax.swing.JRadioButton();
-        middleRight = new javax.swing.JRadioButton();
-        bottomCenter = new javax.swing.JRadioButton();
         topCenter = new javax.swing.JRadioButton();
+        topRight = new javax.swing.JRadioButton();
+        middleLeft = new javax.swing.JRadioButton();
         middleCenter = new javax.swing.JRadioButton();
+        middleRight = new javax.swing.JRadioButton();
+        bottomLeft = new javax.swing.JRadioButton();
+        bottomCenter = new javax.swing.JRadioButton();
+        bottomRight = new javax.swing.JRadioButton();
         btnVistaPrevia = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         btnCancelarNuevaNoticia = new javax.swing.JButton();
@@ -946,80 +946,52 @@ public class Aplicacion extends javax.swing.JFrame {
         jLabel16.setText("Posición del texto");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new java.awt.GridLayout(3, 3));
 
         buttonGroup1.add(topLeft);
         topLeft.setActionCommand("topLeft");
-
-        buttonGroup1.add(topRight);
-        topRight.setActionCommand("topRight");
-
-        buttonGroup1.add(bottomLeft);
-        bottomLeft.setActionCommand("bottomLeft");
-
-        buttonGroup1.add(bottomRight);
-        bottomRight.setActionCommand("bottomRight");
-
-        buttonGroup1.add(middleLeft);
-        middleLeft.setActionCommand("middleLeft");
-
-        buttonGroup1.add(middleRight);
-        middleRight.setActionCommand("middleRight");
-
-        buttonGroup1.add(bottomCenter);
-        bottomCenter.setActionCommand("bottomCenter");
+        topLeft.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(topLeft);
 
         buttonGroup1.add(topCenter);
         topCenter.setActionCommand("topCenter");
+        topCenter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(topCenter);
+
+        buttonGroup1.add(topRight);
+        topRight.setActionCommand("topRight");
+        topRight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(topRight);
+
+        buttonGroup1.add(middleLeft);
+        middleLeft.setActionCommand("middleLeft");
+        middleLeft.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(middleLeft);
 
         buttonGroup1.add(middleCenter);
         middleCenter.setActionCommand("middleCenter");
+        middleCenter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(middleCenter);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bottomLeft)
-                    .addComponent(topLeft)
-                    .addComponent(middleLeft))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(middleCenter)
-                        .addGap(76, 76, 76)
-                        .addComponent(middleRight))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(topCenter)
-                        .addGap(81, 81, 81)
-                        .addComponent(topRight))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(bottomCenter)
-                        .addGap(76, 76, 76)
-                        .addComponent(bottomRight)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(topCenter)
-                    .addComponent(topRight)
-                    .addComponent(topLeft))
-                .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(middleCenter)
-                    .addComponent(middleLeft)
-                    .addComponent(middleRight))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bottomLeft, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bottomRight, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bottomCenter, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
+        buttonGroup1.add(middleRight);
+        middleRight.setActionCommand("middleRight");
+        middleRight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(middleRight);
+
+        buttonGroup1.add(bottomLeft);
+        bottomLeft.setActionCommand("bottomLeft");
+        bottomLeft.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(bottomLeft);
+
+        buttonGroup1.add(bottomCenter);
+        bottomCenter.setActionCommand("bottomCenter");
+        bottomCenter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(bottomCenter);
+
+        buttonGroup1.add(bottomRight);
+        bottomRight.setActionCommand("bottomRight");
+        bottomRight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(bottomRight);
 
         btnVistaPrevia.setMnemonic('V');
         btnVistaPrevia.setText("Vista previa");
@@ -1114,14 +1086,14 @@ public class Aplicacion extends javax.swing.JFrame {
                             .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnVistaPrevia)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                                         .addComponent(jLabel15)
                                         .addGap(2, 2, 2)
                                         .addComponent(comboDiasVigencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(2, 2, 2)
-                                        .addComponent(jLabel17)))
-                                .addGap(0, 33, Short.MAX_VALUE)))))
+                                        .addComponent(jLabel17))
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 49, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         nuevaNoticiaLayout.setVerticalGroup(
@@ -1136,7 +1108,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addComponent(lblDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
-                .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addComponent(btnImagen)
                         .addGap(3, 3, 3)
@@ -1148,7 +1120,7 @@ public class Aplicacion extends javax.swing.JFrame {
                     .addGroup(nuevaNoticiaLayout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(nuevaNoticiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
@@ -1445,7 +1417,7 @@ public class Aplicacion extends javax.swing.JFrame {
         //System.out.println("Clave: "+String.valueOf(txtPassword.getPassword()));
         if (txtUser.getText().trim().equals("") || String.valueOf(txtPassword.getPassword()).trim().equals("")) {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña en blanco");
-        }else if (txtUser.getText().equals("admin") && String.valueOf(txtPassword.getPassword()).equals("1234")) {
+        }else if (txtUser.getText().equals("admin") && String.valueOf(txtPassword.getPassword()).equals("pi2018..")) {
             peticionIP.setLocationRelativeTo(null);
             peticionIP.setVisible(true);
         }else {
@@ -1677,8 +1649,8 @@ public class Aplicacion extends javax.swing.JFrame {
         lblNombreImagen.setText("");
         comboDiasVigencia.setSelectedIndex(0);
         buttonGroup1.clearSelection();
-        jSpinner1.getModel().setValue(20);
-        fontSize = 20;
+        jSpinner1.getModel().setValue(50);
+        fontSize = 50;
         jColorChooser1.setColor(Color.BLACK);
         fontColor = Color.BLACK;
         image = null;
@@ -1706,6 +1678,19 @@ public class Aplicacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnImagenActionPerformed
 
+    private void generarVistaPrevia(int x, int y) {
+        try {
+            String texto = jTextArea1.getText();
+            System.out.println("Imagen cargada");
+            BufferedImage imagenVistaPrevia = null;
+            imagenVistaPrevia = writeImage(image, texto, x, y, fontSize, fontColor);
+            ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
+            System.out.println("Vista previa creada");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
     private void btnVistaPreviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaPreviaActionPerformed
         if (imagen_seleccionada==null) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen");
@@ -1717,25 +1702,18 @@ public class Aplicacion extends javax.swing.JFrame {
             try {
                 String positionSelected = buttonGroup1.getSelection().getActionCommand();
                 Thread t;
+                
+                image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
+                // Dimensiones de la imagen
+                int width = image.getWidth();
+                int height = image.getHeight();
+                
                 switch (positionSelected) {
                     case "topLeft":
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/1))+50, (height-(height/1))+50, fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia((width-(width/1))+50, (height-(height/1))+50);
                             }
                         };
                         t.start();
@@ -1749,20 +1727,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/2))-(width/6), (height-(height/1))+50, fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia((width-(width/2))-(width/6), (height-(height/1))+50);
                             }
                         };
                         t.start();
@@ -1776,20 +1741,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, width-(width/3), (height-(height/1))+50, fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia(width-(width/3), (height-(height/1))+50);
                             }
                         };
                         t.start();
@@ -1803,20 +1755,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/1))+50, (height-(height/2))-(height/6), fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia((width-(width/1))+50, (height-(height/2))-(height/6));
                             }
                         };
                         t.start();
@@ -1830,20 +1769,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/2))-(width/6), (height-(height/2))-(height/6), fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia((width-(width/2))-(width/6), (height-(height/2))-(height/6));
                             }
                         };
                         t.start();
@@ -1857,20 +1783,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, width-width/3, (height-(height/2))-(height/6), fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia(width-width/3, (height-(height/2))-(height/6));
                             }
                         };
                         t.start();
@@ -1884,20 +1797,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/1))+50, height-height/3, fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia((width-(width/1))+50, height-height/3);
                             }
                         };
                         t.start();
@@ -1911,20 +1811,7 @@ public class Aplicacion extends javax.swing.JFrame {
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, (width-(width/2))-(width/6), height-height/3, fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia((width-(width/2))-(width/6), height-height/3);
                             }
                         };
                         t.start();
@@ -1934,24 +1821,11 @@ public class Aplicacion extends javax.swing.JFrame {
                             ex.printStackTrace();
                         }
                         break;
-                    default:// bottomRight
+                    case "bottomRight":
                         t = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    System.out.println("Posición: "+evt.getActionCommand());
-                                    String texto = jTextArea1.getText();
-                                    image = ImageIO.read(imagen_seleccionada);// Se toma la imagen seleccionada
-                                    System.out.println("Imagen cargada");
-                                    BufferedImage imagenVistaPrevia = null;
-                                    int width = image.getWidth();
-                                    int height = image.getHeight();
-                                    imagenVistaPrevia = writeImage(image, texto, width-width/3, height-height/3, fontSize, fontColor);
-                                    ImageIO.write(imagenVistaPrevia, "png", new File("vistaprevia"));
-                                    System.out.println("Vista previa creada");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
+                                generarVistaPrevia(width-width/3, height-height/3);
                             }
                         };
                         t.start();
