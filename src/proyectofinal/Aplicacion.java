@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectofinal;
 
 import com.jcraft.jsch.ChannelExec;
@@ -17,18 +12,19 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -53,6 +49,12 @@ public class Aplicacion extends javax.swing.JFrame {
      * Creates new form Aplicacion
      */
     public Aplicacion() {
+        try{
+            Splash sp=new Splash("icons/splash.jpg",new JFrame(), 5000);//5 segundos de fondo, en cuanto la APP aparezca lo tapará
+            Thread.sleep(500);//Espera para que se vea el logo antes de pasar a cargar la GUI
+        }catch ( InterruptedException e) {
+            e.printStackTrace();
+        }
         initComponents();
     }
     
@@ -2294,13 +2296,9 @@ public class Aplicacion extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Aplicacion aplicacion = new Aplicacion();
-                aplicacion.setLocationRelativeTo(null);
-                aplicacion.setVisible(true);
-            }
-        });
+        Aplicacion aplicacion = new Aplicacion();
+        aplicacion.setLocationRelativeTo(null);
+        aplicacion.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
